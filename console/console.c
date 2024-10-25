@@ -2,17 +2,13 @@
 #include "../include/console.h"
 
 static int terminal_position = 0;
+char* const VGA_BUFFER = (char*) 0xb8000;
+
 
 void clear_terminal() {
-	char* const VGA_BUFFER = (char*) 0xb8000;
-
-	for (int i=0; i < VGA_WIDTH * VGA_HEIGHT; i++) {
-		if (i % 2 == 0) {
-			VGA_BUFFER[i] = '\0';
-		}
-		else {
-			VGA_BUFFER[i] = 0x07;
-		}
+	for (int i=0; i < VGA_WIDTH * VGA_HEIGHT; i+=VGA_BYTES_PER_CHARACTER) {
+		VGA_BUFFER[i] = '\0';
+		VGA_BUFFER[i+1] = 0x07;
 	}
 	return;
 }
@@ -33,8 +29,6 @@ void print_string(char* str) {
 }
 
 void print_character(char c) {
-	char* const VGA_BUFFER = (char*) 0xb8000;
-	
 	switch(c) {
 		case '\n':
 			terminal_position += (VGA_WIDTH - 

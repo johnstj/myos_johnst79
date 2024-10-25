@@ -15,7 +15,7 @@ kernel.bin: kernel-entry.o ${O_FILES}
 kernel-entry.o: kernel-entry.elf
 		nasm $< -f elf -o $@
 ${O_FILES}: kernel.c
-	gcc -linclude -fno-pie -m32 -ffreestanding -c ${@:.o=.c} -o $@
+	gcc -Iinclude -fno-pie -m32 -ffreestanding -c ${@:.o=.c} -o $@
 clean:
 	$(RM) *.o *.bin
 	find . -name \*.o | xargs --no-run-if-empty rm
