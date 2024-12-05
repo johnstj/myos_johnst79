@@ -1,4 +1,4 @@
-// Joe Johnston HWP2
+// Joe Johnston
 #include "console.h"
 
 static int terminal_position = 0;

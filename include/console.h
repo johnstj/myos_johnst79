@@ -1,4 +1,4 @@
-// Joe Johnston HWP2
+// Joe Johnston
 #ifndef MYOS_INCLUDE_CONSOLE_H
 #define MYOS_INCLUDE_CONSOLE_H
 

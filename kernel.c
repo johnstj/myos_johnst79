@@ -1,4 +1,4 @@
-// Joe Johnston HWP2
+// Joe Johnston
 #include "console.h"
 
 void main() {
