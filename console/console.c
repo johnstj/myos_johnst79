@@ -1,8 +1,8 @@
 // Joe Johnston HWP2
-#include "../include/console.h"
+#include "console.h"
 
 static int terminal_position = 0;
-char* const VGA_BUFFER = (char*) 0xb8000;
+static char* const VGA_BUFFER = (char*) 0xb8000;
 
 
 void clear_terminal() {
@@ -10,6 +10,7 @@ void clear_terminal() {
 		VGA_BUFFER[i] = '\0';
 		VGA_BUFFER[i+1] = 0x07;
 	}
+	terminal_position = 0;
 	return;
 }
 
