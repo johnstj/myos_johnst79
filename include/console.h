@@ -1,4 +1,6 @@
 // Joe Johnston
+#include <stdint.h>
+
 #ifndef MYOS_INCLUDE_CONSOLE_H
 #define MYOS_INCLUDE_CONSOLE_H
 
@@ -42,5 +44,7 @@ void print_line_with_color(char* str, VGA_Color bg_color, VGA_Color font_color);
 void set_terminal_font_color(VGA_Color col);
 
 void set_terminal_background_color(VGA_Color col);
+
+void update_cursor();
 
 #endif

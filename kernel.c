@@ -1,15 +1,17 @@
 // Joe Johnston
 #include "console.h"
+#include "keyboard.h"
+#include "portmap.h"
 
 void main() {
-	// Joe Johnston HWP3
+	// Joe Johnston HWP4
 	clear_terminal();
 
-	print_string_with_color("hello", YELLOW, CYAN);
+	uint8_t byte;
 
-	print_line_with_color("World", MAGENTA, GREEN);
-
-	print_string("Today");
-
-	return;
+	while(1) {
+		while ( byte = scan()) {
+			print_character(charmap[byte]);
+		}
+	}
 }
